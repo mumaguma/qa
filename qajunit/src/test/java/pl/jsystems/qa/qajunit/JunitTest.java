@@ -9,6 +9,7 @@ import java.util.List;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tags({@Tag("junit"), @Tag("smoke"), @Tag("noparam")})
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("nazwa klasy która pojawi sie w raporcie")
 public class JunitTest {
