@@ -4,3 +4,5 @@
 /target
 */target/*!/.idea/.gitignore
 !/.idea/jsystems-qa.iml
+/qajunit/target/
+*/.allure/*
