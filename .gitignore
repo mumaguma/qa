@@ -1,0 +1,6 @@
+/.idea
+*.iml
+*/*.iml
+/target
+*/target/*!/.idea/.gitignore
+!/.idea/jsystems-qa.iml
