@@ -7,7 +7,7 @@ pipeline {
 
     parameters {
         choice(name: 'TAG', choices: ['junit', 'smoke', 'noparam', 'param', 'string', 'zadania', 'nested', 'csv', 'enum'], description: 'Choose tag.')
-        choice(name: 'EX_TAG', choices: ['junit', 'smoke', 'noparam', 'param', 'string', 'zadania', 'nested', 'csv', 'enum'], description: 'Choose tag.')
+        choice(name: 'EX_TAG', choices: ['','junit', 'smoke', 'noparam', 'param', 'string', 'zadania', 'nested', 'csv', 'enum'], description: 'Choose tag.')
     }
 
     stages {
