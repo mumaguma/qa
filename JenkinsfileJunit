@@ -1,22 +1,28 @@
 pipeline {
     agent any
+
     triggers {
         cron('40 15 * * *')
+    }
+
+    parameters {
+        choice(name: 'TAG', choices: ['junit', 'smoke', 'noparam', 'param', 'string', 'zadania', 'nested'], description: 'Choose tag.')
+        choice(name: 'EX_TAG', choices: ['junit', 'smoke', 'noparam', 'param', 'string', 'zadania', 'nested'], description: 'Choose tag.')
     }
 
     stages {
         stage('checkout') {
             steps {
-                git url: 'https://github.com/mumaguma/qa.git'
-                branch: 'feature/junit-allure'
+                git branch: 'feature/jenkinsfile-junit', url: 'https://github.com/mumaguma/qa'
             }
         }
         stage('build') {
             steps {
-                sh "mvn clean test"
+                sh "mvn clean test -Dgroups=${params.TAG} -DexcludedGroups=${params.EX_TAG} -pl qajunit"
             }
         }
     }
+
     post {
         always {
             allure([
