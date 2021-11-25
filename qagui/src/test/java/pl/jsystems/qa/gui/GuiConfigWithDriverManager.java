@@ -24,14 +24,26 @@ public class GuiConfigWithDriverManager {
     }
 
 
-
     @BeforeEach
     public void setUp() {
 //        driver = new ChromeDriver();
+//        driver.manage().deleteAllCookies();   // opcjonalnie
+
+        if (GuiConfig.MACHINE.equals("local")) {
+            setupLocalConfiguration();
+        } else {
+            setupRemoteConfiguration();
+        }
+
+    }
+
+    private void setupRemoteConfiguration() {
+    }
+
+    private void setupLocalConfiguration() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-//        driver.manage().deleteAllCookies();   // opcjonalnie
         driver.manage().window().maximize();
 
     }
@@ -40,6 +52,29 @@ public class GuiConfigWithDriverManager {
     public void tearDown() {
         driver.quit();
     }
+
+//    private WebDriver setWebDriver() {
+//        switch (GuiConfig.BROWSER) {
+//            case "chrome":
+//                try {
+//                    System.setProperty("webdriver.chrome.driver", Paths.get(getClass().getClassLoader()
+//                            .getResource("drivers/chromedriver.exe").toURI()).toFile().getAbsolutePath());
+//                } catch (URISyntaxException e) {
+//                    e.printStackTrace();
+//                }
+//                return new ChromeDriver();
+//            case "firefox":
+//                try {
+//                    System.setProperty("webdriver.gecko.driver", Paths.get(getClass().getClassLoader()
+//                            .getResource("drivers/geckodriver.exe").toURI()).toFile().getAbsolutePath());
+//                } catch (URISyntaxException e) {
+//                    e.printStackTrace();
+//                }
+//                return new FirefoxDriver();
+//            case "edge":
+//                return new EdgeDriver();
+//        }
+//    }
 
 
 }

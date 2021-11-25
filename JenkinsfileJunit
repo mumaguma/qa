@@ -18,7 +18,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh "mvn clean test -Dgroups=${params.TAG} -DexcludedGroups=${params.EX_TAG} -pl qajunit"
+                sh "mvn clean test -DENVIRONMENT=${params.ENVIRONMENT} -Dgroups=${params.TAG} -DexcludedGroups=${params.EX_TAG} -pl qajunit"
             }
         }
     }

@@ -1,8 +1,6 @@
 package pl.jsystems.qa.gui;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -14,9 +12,11 @@ import pl.jsystems.qa.gui.page.*;
 
 import java.util.Set;
 
+import static pl.jsystems.qa.gui.GuiConfig.*;
+
 @Tags({@Tag("FrontEnd"), @Tag("smoke"), @Tag("param")})
 @DisplayName("Frontend test")
-public class KatalonTest extends GuiConfigWithDriverManager {
+public class KatalonTest extends GuiConfigurationTutor {
 
     WordpressMainPage wordpressMainPage;
     LoginPage loginPage;
@@ -39,11 +39,13 @@ public class KatalonTest extends GuiConfigWithDriverManager {
 
     @Tag("Login")
     @DisplayName("Log in and click-through test")
-    @ParameterizedTest(name = "Credentials u: {0}, p: <hidden>")
-    @CsvFileSource(resources = "/credentials.csv")
-    public void loginTest(String userName, String userPass) {
+//    @ParameterizedTest(name = "Credentials u: {0}, p: <hidden>")
+//    @CsvFileSource(resources = "/credentials.csv")
+//    public void loginTest(String userName, String userPass) {
+    public void loginTest() {
 
-        driver.get("https://wordpress.com/");
+        driver.get(BASE_URL);
+//        driver.get("https://wordpress.com/");
         wordpressMainPage = new WordpressMainPage(driver);
         wordpressMainPage.waitForPageLoaded(5);
         wordpressMainPage.loginLink.click();
@@ -51,8 +53,8 @@ public class KatalonTest extends GuiConfigWithDriverManager {
         loginPage = new LoginPage(driver);
         loginPage.waitForPageLoaded(5);
         loginPage.supressGdprBanner();
-        loginPage.enterUser(userName);
-        loginPage.enterPass(userPass);
+        loginPage.enterUser(LOGIN);
+        loginPage.enterPass(PASSWORD);
 
         mainUserPage = new MainUserPage(driver);
         mainUserPage.waitForPageLoaded(10);
@@ -62,7 +64,7 @@ public class KatalonTest extends GuiConfigWithDriverManager {
 
         myProfilePage = new MyProfilePage(driver);
         myProfilePage.waitForPageLoaded(5);
-        Assertions.assertEquals(myProfilePage.getProfileName(), userName);
+        Assertions.assertEquals(myProfilePage.getProfileName(), LOGIN);
         myProfilePage.toggleProfileCheckbox();
         myProfilePage.clickLogOutButton();
         myProfilePage.waitForPageLoaded(6);
