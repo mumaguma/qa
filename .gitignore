@@ -6,3 +6,4 @@
 !/.idea/jsystems-qa.iml
 /qajunit/target/
 */.allure/*
+/qagui/allure-results/*
