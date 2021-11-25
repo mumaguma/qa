@@ -43,6 +43,7 @@ public class KatalonTest extends GuiConfigurationTutor {
 //    @ParameterizedTest(name = "Credentials u: {0}, p: <hidden>")
 //    @CsvFileSource(resources = "/credentials.csv")
 //    public void loginTest(String userName, String userPass) {
+    @Test
     public void loginTest() {
 
         driver.get(BASE_URL);
@@ -68,7 +69,7 @@ public class KatalonTest extends GuiConfigurationTutor {
         Assertions.assertEquals(myProfilePage.getProfileName(), LOGIN);
         myProfilePage.toggleProfileCheckbox();
         myProfilePage.clickLogOutButton();
-        myProfilePage.waitForPageLoaded(6);
+//        myProfilePage.waitForPageLoaded(6);
 
     }
 
