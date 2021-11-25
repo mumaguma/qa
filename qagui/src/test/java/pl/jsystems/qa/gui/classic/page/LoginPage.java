@@ -1,4 +1,4 @@
-package pl.jsystems.qa.gui.page;
+package pl.jsystems.qa.gui.classic.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

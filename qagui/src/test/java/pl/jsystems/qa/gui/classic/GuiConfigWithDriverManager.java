@@ -1,4 +1,4 @@
-package pl.jsystems.qa.gui;
+package pl.jsystems.qa.gui.classic;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import pl.jsystems.qa.gui.GuiConfig;
 
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
