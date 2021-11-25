@@ -1,4 +1,4 @@
-package pl.jsystems.qa.gui;
+package pl.jsystems.qa.gui.classic;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pl.jsystems.qa.gui.page.*;
+import pl.jsystems.qa.gui.classic.page.*;
 
 import java.util.Set;
 

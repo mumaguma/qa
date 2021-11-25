@@ -1,4 +1,4 @@
-package pl.jsystems.qa.gui;
+package pl.jsystems.qa.gui.classic;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
